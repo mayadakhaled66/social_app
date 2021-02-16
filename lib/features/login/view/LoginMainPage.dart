@@ -46,9 +46,7 @@ class LoginMainPageState extends State<LoginMainPage> {
             if(state is LoginSuccessState){
               if(dialogLoadingBuildContext!=null){
                 Navigator.pop(dialogLoadingBuildContext);
-              }
-              if(dialogBuildContext!=null){
-                Navigator.pop(dialogBuildContext);
+                dialogLoadingBuildContext=null;
               }
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => UserHomePage(userName: state.userInfo.firstName,)));
             }

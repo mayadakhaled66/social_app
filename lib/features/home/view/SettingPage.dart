@@ -41,9 +41,6 @@ class _SettingPageState extends State<SettingPage> {
               if(dialogLoadingBuildContext!=null){
                 Navigator.pop(dialogLoadingBuildContext);
               }
-              if(_dialogContexts!=null){
-                Navigator.pop(_dialogContexts);
-              }
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => LoginMainPage()));
             }
           },

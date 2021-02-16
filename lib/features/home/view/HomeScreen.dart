@@ -44,7 +44,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               );
             } else if (state is HomePageFail) {
-              Navigator.pop(_dialogContexts);
+              if(_dialogContexts!=null){
+                Navigator.pop(_dialogContexts);
+                _dialogContexts = null;
+              }
+
               return showDialog<void>(
                 context: context,
                 barrierDismissible: true,
@@ -56,7 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               );
             } else if (state is UserDataHomePageSuccessState) {
-              Navigator.pop(_dialogContexts);
+              if(_dialogContexts!=null){
+                Navigator.pop(_dialogContexts);
+                _dialogContexts = null;
+              }
               if (state.userInfo != null) {
                 _userModel = state.userInfo;
                 currentSelectedUser = _userModel.data[0];
@@ -65,21 +72,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 _userModel = UserModel();
               }
             } else if (state is TagDataHomePageSuccessState) {
-              Navigator.pop(_dialogContexts);
+              if(_dialogContexts!=null){
+                Navigator.pop(_dialogContexts);
+                _dialogContexts = null;
+              }
               if (state.tagModel != null) {
                 _tagModel = state.tagModel;
               } else {
                 _tagModel = TagModel();
               }
             } else if (state is PostDataHomePageSuccessState) {
-              Navigator.pop(_dialogContexts);
+              if(_dialogContexts!=null){
+                Navigator.pop(_dialogContexts);
+                _dialogContexts = null;
+              }
               if (state.postModel != null) {
                 _postModel = state.postModel;
               } else {
                 _postModel = PostModel();
               }
             }else if (state is PostDataByUserIDHomePageSuccessState){
-              Navigator.pop(_dialogContexts);
+              if(_dialogContexts!=null){
+                Navigator.pop(_dialogContexts);
+                _dialogContexts = null;
+              }
               if (state.postModel != null) {
                 _postModel = state.postModel;
               } else {
